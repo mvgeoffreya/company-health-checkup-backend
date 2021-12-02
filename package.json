@@ -1,0 +1,23 @@
+{
+  "name": "company-health-checkup-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mvgeoffreya/company-health-checkup-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mvgeoffreya/company-health-checkup-backend/issues"
+  },
+  "homepage": "https://github.com/mvgeoffreya/company-health-checkup-backend#readme",
+  "dependencies": {
+    "mssql": "^7.3.0"
+  }
+}
