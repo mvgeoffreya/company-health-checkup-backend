@@ -36,7 +36,20 @@ export class DataService extends core.Construct {
       restApiName: "Data Page Service",
       description: "This service serves data page."
     });
+    const handlerCompany = new lambda.Function(this, "queryCompany", {
+      runtime: lambda.Runtime.NODEJS_14_X, // So we can use async in dataPage.js
+      code: lambda.Code.fromAsset("resources"),
+      handler: "company.main",
+      environment: {
+        BUCKET: bucket.bucketName
+      },
+      layers: [nodeLayer],
+      timeout: Duration.minutes(15),
+      memorySize: 10240
+    });
     const postDataPageIntegration = new apigateway.LambdaIntegration(handler);
-    const dataPage = api.root.addMethod("POST",postDataPageIntegration)
+    const getDataPageIntegration = new apigateway.LambdaIntegration(handlerCompany);
+    const dataPage = api.root.addMethod("POST",postDataPageIntegration);
+    const companyPage = api.root.addMethod("GET",getDataPageIntegration);
   }
 }
