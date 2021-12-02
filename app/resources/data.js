@@ -79,7 +79,7 @@ exports.main = async function (event, context) {
       statusCode: 200,
       headers: {
         'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Origin': origin[0],
+        'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'OPTIONS,POST,GET,PUT,DELETE'
       },
       body: JSON.stringify(response.recordset)
@@ -89,7 +89,7 @@ exports.main = async function (event, context) {
       statusCode: 400,
       headers: {
         'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Origin': origin[0],
+        'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'OPTIONS,POST,GET,PUT,DELETE'
       },
       body: JSON.stringify([])
